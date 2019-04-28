@@ -3,7 +3,7 @@ var scores, roundScore, activePlayer;
 
 scores = [0,0];
 roundScore = 0;
-activePlayer = 1;
+activePlayer = 0;
  
 //Impostiamo il display none per il dado
     document.querySelector('.dice').style.display = 'none';
@@ -23,5 +23,18 @@ activePlayer = 1;
         var diceDOM = document.querySelector('.dice');
         diceDOM.style.display='block';
         diceDOM.src = 'dice-' + dice + '.png';
+
+        //3.Update the round score if the rolled number was not 1
+        
+        if(dice !== 1){
+            //Add score
+            roundScore += dice;
+            document.querySelector('#current-' +activePlayer).textContent = roundScore;
+
+        } else {
+            activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+            roundScore = 0;
+        }
+
     })
 
