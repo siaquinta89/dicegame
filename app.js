@@ -49,6 +49,9 @@ document.getElementById('current-1').textContent='0';
         //Update the UI
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
         //Check if the player won the game
+        if(scores[activePlayer] >= 4){
+            document.querySelector('#name-' + activePlayer).textContent='Winnner!'
+        }
 
         //Next player
         nextPlayer();
