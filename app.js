@@ -51,10 +51,16 @@ document.getElementById('current-1').textContent='0';
         //Check if the player won the game
         if(scores[activePlayer] >= 4){
             document.querySelector('#name-' + activePlayer).textContent='Winnner!'
+            document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+
+        }else{
+            //Next player
+                nextPlayer();
         }
 
-        //Next player
-        nextPlayer();
+        
 
     });
 
@@ -66,7 +72,7 @@ document.getElementById('current-1').textContent='0';
          document.getElementById('current-0').textContent='0';
          document.getElementById('current-1').textContent='0';
 
-         //Remove 'active' class
+         //Remove 'active' class or add if there isn't
          document.querySelector('.player-0-panel').classList.toggle('active');
          document.querySelector('.player-1-panel').classList.toggle('active');
          
